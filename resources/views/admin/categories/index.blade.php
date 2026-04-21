@@ -55,18 +55,7 @@
                     </td>
                 </tr>
 
-                <tr class="hover:bg-gray-50 transition">
-                    <td class="p-4">3</td>
-                    <td class="p-4 font-medium text-gray-800">Workshop</td>
-                    <td class="p-4 text-center">
-                        <button class="px-3 py-1 text-xs rounded-lg bg-blue-100 text-blue-600 hover:bg-blue-200">
-                            Edit
-                        </button>
-                        <button class="px-3 py-1 text-xs rounded-lg bg-red-100 text-red-600 hover:bg-red-200 ml-2">
-                            Hapus
-                        </button>
-                    </td>
-                </tr>
+               
 
             </tbody>
         </table>
