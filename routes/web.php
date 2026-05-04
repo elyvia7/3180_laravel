@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,19 +41,13 @@ Route::get('/my-ticket', [TicketController::class, 'index'])->name('ticket');
 |--------------------------------------------------------------------------
 */
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\EventController as AdminEventController;
-use App\Http\Controllers\Admin\CategoryController;
-
 Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::resource('events', AdminEventController::class);
 
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
-
-    // Kelola Event
-    Route::get('/events', [AdminEventController::class, 'index'])
-        ->name('events.index');
 
     // Laporan Transaksi
     Route::get('/transactions', [DashboardController::class, 'transactions'])
