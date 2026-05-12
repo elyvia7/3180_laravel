@@ -7,6 +7,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,21 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/categories', [CategoryController::class, 'index'])
         ->name('categories');
 
+    // READ
+    Route::get('partners', [PartnerController::class, 'index']);
+
+    // CREATE
+    Route::get('partners/create', [PartnerController::class, 'create']);
+    Route::post('partners', [PartnerController::class, 'store']);
+
+    // EDIT (UPDATE FORM)
+    Route::get('partners/{id}/edit', [PartnerController::class, 'edit']);
+
+    // UPDATE
+    Route::put('partners/{id}', [PartnerController::class, 'update']);
+
+    // DELETE
+    Route::delete('partners/{id}', [PartnerController::class, 'destroy']);
 });
+
+ 
