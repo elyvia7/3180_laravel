@@ -36,7 +36,6 @@
 
                 </div>
 
-                {{-- Logo URL --}}
                 <div class="mb-6">
 
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
@@ -51,7 +50,6 @@
 
                 </div>
 
-                {{-- Button --}}
                 <div class="flex items-center gap-3">
 
                     <button type="submit"

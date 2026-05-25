@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel</title>
@@ -11,8 +12,8 @@
     <!-- Sidebar -->
     <aside class="w-64 bg-indigo-900 text-indigo-100 flex flex-col p-6 space-y-8 sticky top-0 h-screen">
         <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                AH
-            </div>
+            AH
+        </div>
         <div class="flex items-center gap-3">
             <span class="text-xl font-bold text-white tracking-tight">AmikomEventHub</span>
         </div>
@@ -65,6 +66,18 @@
                 Kategori
             </a>
 
+            <a href="{{ url('/admin/partners') }}"
+                class="flex items-center gap-3 px-4 py-3 hover:bg-indigo-800 rounded-xl font-bold transition">
+
+                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 20h5V4H2v16h5m10 0v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6m10 0H7">
+                    </path>
+                </svg>
+
+                Partner
+            </a>
+
         </nav>
 
         <!-- Logout -->
@@ -87,4 +100,5 @@
     </div>
 
 </body>
+
 </html>

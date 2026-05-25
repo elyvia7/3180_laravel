@@ -55,8 +55,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('transactions.index');
 
     // Kategori
-    Route::get('/categories', [CategoryController::class, 'index'])
-        ->name('categories');
+    Route::resource('/categories', CategoryController::class);
 
     // READ
     Route::get('partners', [PartnerController::class, 'index']);

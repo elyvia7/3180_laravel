@@ -21,7 +21,6 @@
 
 <body class="bg-slate-50 text-slate-900 flex min-h-screen">
 
-        <!-- Table -->
         <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
 
             <div class="px-8 py-6 bg-slate-50 border-b flex gap-4">
