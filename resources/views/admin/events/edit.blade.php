@@ -21,8 +21,7 @@
 
             <select name="category_id" class="w-full border border-gray-300 p-2.5 rounded" required>
                 @foreach($categories as $category)
-                    <!-- Teknik logika kondisional (Ternary)
-                    memastikan pemilihan menu default merujuk pada kategori sebelumnya -->
+    
 
                     <option value="{{ $category->id }}"
                         {{ $event->category_id == $category->id ? 'selected' : '' }}>

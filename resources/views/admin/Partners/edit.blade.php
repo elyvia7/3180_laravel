@@ -6,7 +6,6 @@
 
     <div class="bg-white rounded-2xl shadow-md overflow-hidden">
 
-        {{-- HEADER --}}
         <div class="px-8 py-6 border-b">
             <h2 class="text-2xl font-bold text-gray-800">
                 Edit Partner
@@ -16,15 +15,12 @@
                 Perbarui data partner.
             </p>
         </div>
-
-        {{-- FORM --}}
         <div class="p-8">
 
             <form action="/admin/partners/{{ $partner->id }}" method="POST">
                 @csrf
                 @method('PUT')
 
-                {{-- Nama Partner --}}
                 <div class="mb-5">
 
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
@@ -39,7 +35,6 @@
 
                 </div>
 
-                {{-- Logo URL --}}
                 <div class="mb-6">
 
                     <label class="block text-sm font-semibold text-gray-700 mb-2">
@@ -54,7 +49,6 @@
 
                 </div>
 
-                {{-- BUTTON --}}
                 <div class="flex items-center gap-3">
 
                     <button type="submit"

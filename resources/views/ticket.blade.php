@@ -5,7 +5,6 @@
 <div class="bg-indigo-600 text-white min-h-screen flex items-center justify-center p-6">
 
     <div class="max-w-md w-full">
-        <!-- Success Banner -->
         <div class="text-center mb-8">
             <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-white">
                 <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -16,16 +15,13 @@
             <p class="text-indigo-100 mt-2">Tiket Anda telah terbit dan siap digunakan.</p>
         </div>
 
-        <!-- Ticket Card -->
         <div class="bg-white text-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative">
 
-            <!-- Header -->
             <div class="p-8 bg-indigo-50 border-b-4 border-dashed border-indigo-100 text-center relative">
                 <p class="text-indigo-600 font-bold uppercase text-xs mb-2">E-Ticket Resmi</p>
                 <h2 class="text-2xl font-black">Jazz Night 2024</h2>
             </div>
 
-            <!-- Body -->
             <div class="p-8 space-y-6">
                 <div>
                     <p class="text-xs text-slate-400">Nama</p>
@@ -43,14 +39,11 @@
                 </div>
             </div>
 
-            <!-- Button -->
             <div class="p-6">
                 <button onclick="window.print()"
                     class="w-full py-3 bg-indigo-600 text-white rounded-xl font-bold">
                     Cetak / Simpan PDF
                 </button>
-
-                <!-- ✅ SUDAH DIPERBAIKI -->
                 <a href="{{ route('home') }}"
                     class="block text-center mt-4 text-slate-500 font-bold">
                     Kembali ke Beranda
