@@ -20,6 +20,16 @@ use App\Http\Controllers\Admin\TransactionController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+/*
+|--------------------------------------------------------------------------
+| ROUTE LOGIN DEFAULT LARAVEL
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/login', function () {
+    return redirect('/admin/login');
+})->name('login');
+
 Route::get('/profil', function () {
     return view('profil');
 })->name('profil');
@@ -32,7 +42,7 @@ Route::get('/bantuan', function () {
     return view('bantuan');
 })->name('bantuan');
 
-Route::get('/event', [EventController::class, 'show'])
+Route::get('/events/{event}', [EventController::class, 'show'])
     ->name('events.show');
 
 Route::get('/checkout', [EventController::class, 'checkout'])
@@ -51,19 +61,20 @@ Route::get('/my-ticket', [TicketController::class, 'index'])
 Route::prefix('admin')->name('admin.')->group(function () {
 
     // Login Admin
-    Route::get('login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('login', [AuthController::class, 'login'])->name('login.post');
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('login', [AuthController::class, 'showLogin'])
+        ->name('login');
+
+    Route::post('login', [AuthController::class, 'login'])
+        ->name('login.post');
+
+    Route::post('logout', [AuthController::class, 'logout'])
+        ->name('logout');
 
     // Protected Route
     Route::middleware(['auth', 'admin'])->group(function () {
 
         Route::get('dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
-
-        Route::get('/login', function () {
-            return redirect('/admin/login');
-        })->name('login');
 
         Route::resource('events', AdminEventController::class);
 

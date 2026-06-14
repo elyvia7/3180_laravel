@@ -141,56 +141,20 @@
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 
         @foreach ($events as $event)
-
         <div class="group overflow-hidden rounded-3xl bg-white shadow-md transition duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
             <div class="relative overflow-hidden bg-slate-100">
 
-                {{-- WORKSHOP --}}
-                @if($event->category->name == 'Workshop')
-
-                <img
-                    src="{{ asset('assets/workshop.png') }}"
+                <img src="{{ ($event->poster_path && Storage::disk('public')->exists($event->poster_path))
+            ? asset('storage/' . $event->poster_path)
+            : 'https://placehold.co/200x600' }}"
                     alt="{{ $event->title }}"
                     class="w-full h-[420px] object-cover object-top transition duration-500 group-hover:scale-105">
-
-                {{-- PELATIHAN --}}
-                @elseif($event->category->name == 'Pelatihan')
-
-                <img
-                    src="{{ asset('assets/pelatihan.png') }}"
-                    alt="{{ $event->title }}"
-                    class="w-full h-[420px] object-cover object-top transition duration-500 group-hover:scale-105">
-
-                {{-- CAREER FAIR --}}
-                @elseif($event->category->name == 'Career Fair')
-
-                <img
-                    src="{{ asset('assets/careerfair.png') }}"
-                    alt="{{ $event->title }}"
-                    class="w-full h-[420px] object-cover object-top transition duration-500 group-hover:scale-105">
-
-                {{-- SEMINAR IT --}}
-                @elseif($event->category->name == 'Seminar IT')
-
-                <img
-                    src="{{ asset('assets/hackathon.png') }}"
-                    alt="{{ $event->title }}"
-                    class="w-full h-[420px] object-cover object-top transition duration-500 group-hover:scale-105">
-
-                {{-- DEFAULT --}}
-                @else
-
-                <img
-                    src="{{ asset('assets/concert.png') }}"
-                    alt="{{ $event->title }}"
-                    class="w-full h-[420px] object-cover object-top transition duration-500 group-hover:scale-105">
-
-                @endif
 
             </div>
 
             <div class="p-6">
+
 
                 <div class="mb-4">
 
@@ -221,23 +185,13 @@
 
                     </span>
 
-                    <a href="#"
-                        class="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700">
-
-                        Detail
-
-                    </a>
+                    <a href="{{ route('events.show', $event->id) }}" class="px-5 py-2 bg-indigo-50 text-indigo-600 rounded-xl font-bold hover:bg-indigo-600
+                    hover:text-white transition">Lihat Detail</a>
 
                 </div>
-
             </div>
-
         </div>
-
         @endforeach
-
     </div>
-
 </section>
-
 @endsection
