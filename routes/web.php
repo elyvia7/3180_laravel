@@ -10,7 +10,6 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +44,9 @@ Route::get('/bantuan', function () {
 Route::get('/events/{event}', [EventController::class, 'show'])
     ->name('events.show');
 
-Route::get('/checkout', [EventController::class, 'checkout'])
-    ->name('checkout');
-
+Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
+    
 Route::get('/my-ticket', [TicketController::class, 'index'])
     ->name('ticket');
 
@@ -78,8 +77,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         Route::resource('events', AdminEventController::class);
 
-        Route::get('transactions', [TransactionController::class, 'index'])
-            ->name('transactions.index');
+       Route::get('transactions', [\App\Http\Controllers\Admin\TransactionController::class,
+       'index'])->name('transactions.index');
 
         Route::resource('categories', CategoryController::class);
 
